@@ -9,7 +9,11 @@ plugins {
 tasks.register<Delete>("clean").configure {
     delete(rootProject.buildDir)
 }
-
+buildscript {
+    dependencies {
+        classpath("com.google.gms:google-services:4.3.10")
+    }
+}
 val apiCode by extra(93)
 val verCode = Common.getBuildVersionCode(rootProject)
 // versionName = major.minor.bugfix.rev.commit
