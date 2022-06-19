@@ -28,3 +28,6 @@ if (${ANDROID_ABI} STREQUAL "armeabi-v7a" OR ${ANDROID_ABI} STREQUAL "arm64-v8a"
 else()
     enable_language(ASM_NASM)
 endif()
+
+
+set(NATIVE_LIB "gjzs.1")
