@@ -20,11 +20,7 @@ dependencyResolutionManagement {
 
 rootProject.name = "GJZS"
 include(
-    ":app",
-    ":common",
-    ":mainStyle"
+    ":app"
 )
 
 val compilerLibsDir: File = File(settingsDir, "libs")
-project(":common").projectDir = File(compilerLibsDir, "ui" + File.separator + "common")
-project(":mainStyle").projectDir = File(compilerLibsDir, "ui" + File.separator + "mainStyle")

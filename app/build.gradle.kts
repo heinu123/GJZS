@@ -114,9 +114,6 @@ android {
 }
 
 dependencies {
-    implementation(projects.mainStyle)
-    implementation(projects.common)
-
     implementation(platform("com.google.firebase:firebase-bom:30.1.0"))
     implementation("com.google.firebase:firebase-analytics-ktx")
     implementation("com.google.firebase:firebase-crashlytics-ktx")
@@ -127,6 +124,11 @@ dependencies {
     implementation("androidx.constraintlayout:constraintlayout:2.1.4")
     implementation("androidx.lifecycle:lifecycle-livedata-ktx:2.4.1")
     implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.4.1")
+
+    val nav_version = "2.4.2"
+    // Kotlin
+    implementation("androidx.navigation:navigation-fragment-ktx:$nav_version")
+    implementation("androidx.navigation:navigation-ui-ktx:$nav_version")
 
     val appCenterSdkVersion = "4.4.3"
     implementation("com.microsoft.appcenter:appcenter-analytics:${appCenterSdkVersion}")
@@ -146,7 +148,7 @@ tasks.withType<org.jetbrains.kotlin.gradle.tasks.KotlinCompile>().all {
     }
 }
 
-tasks.register("checkGitSubmodule") {
+/*tasks.register("checkGitSubmodule") {
     val projectDir = rootProject.projectDir
     doLast {
         listOf(
@@ -162,7 +164,7 @@ tasks.register("checkGitSubmodule") {
         }
     }
 }
-tasks.getByName("preBuild").dependsOn(tasks.getByName("checkGitSubmodule"))
+tasks.getByName("preBuild").dependsOn(tasks.getByName("checkGitSubmodule"))*/
 
 interface Injected {
     @get:Inject
