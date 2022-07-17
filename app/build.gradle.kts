@@ -55,12 +55,12 @@ android {
         externalNativeBuild {
             cmake {
                 arguments += listOf(
-                    "-DGJZS_VERSION=$versionName",
+                    "-DGJZS_VERSION=${versionName}",
                     "-DCMAKE_C_COMPILER_LAUNCHER=ccache",
                     "-DCMAKE_CXX_COMPILER_LAUNCHER=ccache",
+                    "-DANDROID_PLATFORM=android-24",
                     "-DNDK_CCACHE=ccache"
                 )
-                targets += "gjzs"
             }
         }
     }
@@ -91,6 +91,9 @@ android {
             isShrinkResources = false
             isMinifyEnabled = false
             isCrunchPngs = false
+            if (System.getenv("KEYSTORE_PATH") != null) {
+                signingConfig = signingConfigs.getByName("release")
+            }
             proguardFiles("proguard-rules.pro")
         }
     }
